@@ -2,6 +2,7 @@ const { Schema } = require("mongoose");
 const Mongoose = require("mongoose")
 Mongoose.Promise = global.Promise;
 Mongoose.set('useCreateIndex', true)
+Mongoose.set('useUnifiedTopology', true);
 const url = "mongodb://localhost:27017/NutsAndBolts_DB";
 
 const customerSchema = Schema({
@@ -10,6 +11,7 @@ const customerSchema = Schema({
     customerPassword: String,
     customerAddress: {
         type: [{
+            addressName: String,
             line1: String,
             line2: String,
             State: String,
@@ -18,8 +20,7 @@ const customerSchema = Schema({
             contactNo: Number
         }],
         default: []
-    },
-    customerNo: Number
+    }
 }, { collection: "Customer" });
 
 const productSchema = Schema({
@@ -31,19 +32,24 @@ const productSchema = Schema({
             vechicleName: String,
             parts: {
                 type: [{
-                    partName: String,
-                    quantity: Number
+                    partType: String,
+                    partNames: {
+                        type:[{
+                            name: String,
+                            quantity: Number,
+                        }]
+                    }
                 }],
                 default: []
             }
         }],
         default: []
     }
-})
+}, { collection: "Product" })
 
 const serviceSchema = Schema({
 
-})
+}, { collection: "Service" })
 
 let collection = {};
 
@@ -57,3 +63,16 @@ collection.getCustomerCollection = () => {
         throw err;
     })
 }
+
+collection.getProductCollection = () => {
+    return Mongoose.connect(url, { useNewUrlParser: true }).then((database) => {
+        return database.model('Product', productSchema)
+    }).catch((error) => {
+        console.log('--getCustomerCollection-error', error);
+        let err = new Error("Could not connect to Database");
+        err.status = 500;
+        throw err;
+    })
+}
+
+module.exports = collection

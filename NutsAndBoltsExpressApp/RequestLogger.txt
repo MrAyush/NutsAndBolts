@@ -17,3 +17,7 @@ Sun Mar 22 2020 22:24:19 GMT+0530 (India Standard Time) GET /
 Sun Mar 22 2020 22:24:19 GMT+0530 (India Standard Time) GET /favicon.ico
 Sun Mar 22 2020 22:24:50 GMT+0530 (India Standard Time) GET /
 Sun Mar 22 2020 22:24:54 GMT+0530 (India Standard Time) GET /
+Sun Mar 22 2020 23:34:13 GMT+0530 (India Standard Time) GET /setupDb
+Sun Mar 22 2020 23:34:56 GMT+0530 (India Standard Time) GET /setupDb
+Sun Mar 22 2020 23:36:21 GMT+0530 (India Standard Time) GET /setupDb
+Sun Mar 22 2020 23:38:41 GMT+0530 (India Standard Time) GET /setupDb
