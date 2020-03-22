@@ -1,5 +1,5 @@
 const fs = require('fs');
-module.exports = (error, _, res) => {
+errorLogger = (error, req, res, _) => {
     if (error) {
         console.log('Inside Error logger', error.message);
         let errorlog = "" + new Date() + " " + error.stack + "\n";
@@ -10,3 +10,5 @@ module.exports = (error, _, res) => {
         res.json({'message': error.message})
     }
 }
+
+module.exports = errorLogger;
