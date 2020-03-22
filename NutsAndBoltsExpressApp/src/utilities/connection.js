@@ -51,6 +51,7 @@ collection.getCustomerCollection = () => {
     return Mongoose.connect(url, { useNewUrlParser: true }).then((database) => {
         return database.model('Customer', customerSchema)
     }).catch((error) => {
+        console.log('--getCustomerCollection-error', error);
         let err = new Error("Could not connect to Database");
         err.status = 500;
         throw err;
