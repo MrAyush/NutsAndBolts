@@ -12,8 +12,9 @@ const customers = [
             State: 'String ing',
             city: 'Random',
             pin: 12345,
-            contactNo: 1234567890
-        }]
+        }],
+        contactNo: 1234567890,
+        gender: 'Male'
     },
     {
         customerId: 'adam',
@@ -25,9 +26,10 @@ const customers = [
             line2: 'String Random',
             State: 'String ing',
             city: 'Random',
-            pin: 74125,
-            contactNo: 4578901236
-        }]
+            pin: 74125
+        }],
+        contactNo: 4578901236,
+        gender: 'Male'
     }
 ]
 
@@ -109,7 +111,13 @@ let setupDb = () => collection.getCustomerCollection().then(model => {
                 return model.deleteMany({}).then(_ => {
                     return model.insertMany(products).then(data => {
                         console.log('added To data base');
-                        return data
+                        if (data) {
+                            return data
+                        } else {
+                            let err = new Error('setupDb error');
+                            err.status = 500
+                            throw err
+                        }
                     })
                 })
             })

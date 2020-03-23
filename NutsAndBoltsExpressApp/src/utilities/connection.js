@@ -16,11 +16,12 @@ const customerSchema = Schema({
             line2: String,
             State: String,
             city: String,
-            pin: Number,
-            contactNo: Number
+            pin: Number
         }],
         default: []
-    }
+    },
+    contactNo: Number,
+    gender: {type: String, enum: ['Male', 'Female', 'Other']}
 }, { collection: "Customer" });
 
 const productSchema = Schema({
