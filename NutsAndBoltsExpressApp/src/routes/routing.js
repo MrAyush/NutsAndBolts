@@ -2,7 +2,7 @@ const express = require('express');
 const router = express.Router();
 const setupDb = require("../model/dbSetup");
 const service = require('../service/service');
-const User = require('../model/user')
+const { User } = require('../model/user')
 
 router.get('/', (_, res) => {
     res.send('Hello world')

@@ -28,6 +28,10 @@ customerModel.findUserByemail = (email) => {
     })
 }
 
+customerModel.addAddressForCustomer = () => {
+    
+}
+
 customerModel.createCustomer = (user) => {
     return collection.getCustomerCollection().then(model => {
         return customerModel.findUser(user.customerId).then(userData => {
