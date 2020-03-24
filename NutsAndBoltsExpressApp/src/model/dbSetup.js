@@ -5,6 +5,8 @@ const customers = [
         customerId: 'ayush',
         customerName: 'Ayush Gupta',
         customerPassword: 'ayush',
+        customerEmail: 'ayush@gmail.com',
+        customerDOB: new Date('1998/03/02'),
         customerAddress: [{
             addressName: 'Home',
             line1: 'Random Street',
@@ -20,6 +22,8 @@ const customers = [
         customerId: 'adam',
         customerName: 'Adam Millers',
         customerPassword: 'adam',
+        customerEmail: 'alex@gmail.com',
+        customerDOB: new Date('1992/11/28'),
         customerAddress: [{
             addressName: 'Home',
             line1: 'Random Street',

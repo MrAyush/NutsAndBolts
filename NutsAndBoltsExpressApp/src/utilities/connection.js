@@ -9,6 +9,8 @@ const customerSchema = Schema({
     customerId: { type: String, unique: true },
     customerName: String,
     customerPassword: String,
+    customerEmail: String,
+    customerDOB: Date,
     customerAddress: {
         type: [{
             addressName: String,
