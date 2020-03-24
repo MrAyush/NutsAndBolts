@@ -6,7 +6,7 @@ errorLogger = (error, req, res, _) => {
         fs.appendFile('ErrorLogger.txt', errorlog, function (err) {
             if (err) console.log('Error while logging');
         });
-        res.status(error.status? error.stack: 500);
+        res.status(error.status? error.status: 500);
         res.json({'message': error.message})
     }
 }

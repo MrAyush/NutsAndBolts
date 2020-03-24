@@ -28,8 +28,13 @@ customerModel.findUserByemail = (email) => {
     })
 }
 
-customerModel.addAddressForCustomer = () => {
-    
+customerModel.addCustomerAddress = (username, customerAddress) => {
+    return collection.getCustomerCollection().then(model => {
+        return model.update({ customerId: username }, { $push: { customerAddress: customerAddress } }).then(data => {
+            console.log('--customerAddress-data', data);
+            return data;
+        })
+    })
 }
 
 customerModel.createCustomer = (user) => {

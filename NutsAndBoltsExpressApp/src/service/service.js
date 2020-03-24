@@ -35,4 +35,18 @@ service.createUser = (user) => {
     })
 }
 
+service.addAddressForCustomer = (username, address) => {
+    return customerModel.findUser(username).then(userData => {
+        if (userData.customerAddress.filter(data => data.addressName === address.addressName).length > 0) {
+            let err = new Error('Address field Exists')
+            err.status = 401
+            throw err
+        } else {
+            return customerModel.addCustomerAddress(username, address).then(data => {
+                return data
+            })
+        }
+    })
+}
+
 module.exports = service
